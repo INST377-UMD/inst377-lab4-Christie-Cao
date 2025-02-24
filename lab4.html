@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>INST377 - Lab 4</title>
+        
+        <link rel="stylesheet" href="lab4.css">
+    </head>
+
+    <body>
+        <h1 id="heading">INST377 - Lab 4</h1>
+        
+        <!-- Alert Section -->
+        <div class="sections">
+            <form name="alert_form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                
+                <input type="submit" value="Alert Me!" id="button"
+                    onclick="return name_alert()">
+            </form>
+        </div>
+
+        <!-- Text Tester Section -->
+        <div class="sections">
+            <form name="text_tester_form">
+                <label for="text_tester">Text Tester:</label>
+                <input type="text" id="text_tester">
+    
+                <input type="submit" value="Validate Text" id="button">
+            </form>
+        </div>
+
+        <!-- Change Color Section -->
+        <div class="sections">
+            <button onclick="change_color()">Change Color</button>
+        </div>
+
+
+        <!-- Add Text Section -->
+        <div class="sections">     
+            <button onclick="add_text()">Add Text</button>
+        </div>
+
+
+        <!--Note to self: Keep Javascript at end of the body-->
+        <script type="text/javascript">
+            /*Changing the body background color when the change color button is
+            pressed*/
+            function change_color() {
+
+                if (document.body.style.backgroundColor == "lightblue") {
+                    document.body.style.backgroundColor = "green";
+                } else {
+                    document.body.style.backgroundColor = "lightblue";
+                }
+
+            }
+            /*Taking the name the user inputted when the alert me button is
+            pressed and displaying an alert that uses their name*/
+            function name_alert() {
+                var inputted_name = document.getElementById("name").value;
+
+                alert("Hi " + inputted_name + "!");
+                return false;
+                }
+            
+            /*Showing an alert when a special character is submitted after
+            clicking the validate text button*/
+            function validate_text() {
+                var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            
+                if (validation.test(document.text_tester_form.text_tester.value)) {
+                    alert("Special characters are not allowed.");
+                    return false;
+                }
+                
+            }
+
+            /*Adding text to the h1 when the button is clicked*/
+            function add_text() {
+                var updated_heading = document.getElementById("heading") + " - Adding Text"
+            }
+
+        </script>
+
+    </body>
+
+</html>
